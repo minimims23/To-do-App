@@ -1,26 +1,38 @@
 :root{
-   --dark : #885A3A;
-   --darker :#84735E;
-   --light: #a77d54;
-   --pink: #C9B09A;
+   --pink: thistle;
    --purple: #DBD0BD;
-   --grey:#C8D5B9;
-   --blue: #3d8165;
-
+   --black: black;
 }
 
 html {
-   box-sizing: border-box;
+   box-sizing: content-box;
    margin: 0;
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
  }
  body {
-   display: flex;
+   display: center;
    flex-direction: column;
    min-height: 100vh;
-   background-color: var(--darker);
-   color: rgb(8, 78, 67);  
+   background-color: rgb(180, 206, 211);
+   color: rgb(129, 124, 120);  
  }
+
+ .greeting .title {
+	display: flex;
+}
+
+.greeting .title input {
+	margin-left: 0.5rem;
+	flex: 1 1 0%;
+	min-width: 0;
+}
+
+.greeting .title, 
+.greeting .title input {
+	color: black;
+	font-size: 1.5rem;
+	font-weight: 700;
+}
 
  header{
    padding: 2rem 1rem;
@@ -32,7 +44,7 @@ html {
  header h1 {
    font-size: 2.5rem;
    font-weight: 300;
-   color: var(--grey);
+   color: black;
    margin-bottom: 1rem;
  }
 
@@ -52,24 +64,24 @@ html {
 
  #new-task-input {
    flex: 1 1 0%;
-   background-color: var(--blue);
+   background-color: rgb(162, 145, 167);
    padding: 1rem;
    border-radius: 1rem;
    margin-right: 1rem;
-   color: var(--light);
+   color: black;
    font-size: 1.25rem;
  }
 
  #new-task-input ::placeholder{
-   color: var(--blue); 
+   color: black; 
  }
 
  #new-task-submit {
-   color: var(--pink);
+   color: black;
    font-size: 1.2rem;
    font-weight: 700;
-   background-image: linear-gradient(to right, var(--pink),
-   var(--purple));
+   background-image: linear-gradient(to right, var(--black),
+   var(--black));
    -webkit-background-clip:text;
    -webkit-text-fill-color: transparent;
    cursor: pointer;
@@ -86,8 +98,8 @@ html {
  .main {
    flex: 1 1 0%;
    padding: 2rem 1rem;
-   max-width: 800px;
-   width: 100%;
+   max-width: 600px;
+   width: 70%;
    margin: 0 auto ;
  }
 
@@ -98,14 +110,14 @@ html {
  .task-list h2 {
    font-size: 1.5rem;
    font-weight: 300;
-   color: var(--blue);
+   color: black;
    margin-bottom:  1rem;
  }
 
  #tasks .task {
    display: flex;
    justify-content: space-between;
-   background-color: var(--blue);
+   background-color: darkgray;
    padding: 1rem;
    border-radius: 1rem;
    margin-bottom: 1rem;
@@ -115,15 +127,15 @@ html {
    flex: 1 1 0%;
  }
  #tasks .task .content .text {
-   color: var(--light);
+   color: whitesmoke;
    font-size: 1.125rem;
-   width: 100%;
+   width: 70%;
    display: block;
    transition: 0.4s;
  }
 
  .tasks .task .content .text:not(:read-only){
-   color: var(--pink);
+   color: grey;
  }
  
  #tasks .task .actions {
@@ -155,5 +167,5 @@ html {
  }
 
  .task  .actions .delete{
-   color: rgb(212, 93, 117);
+   color: rgb(46, 49, 209);
  }

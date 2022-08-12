@@ -1,13 +1,23 @@
 window.addEventListener('load' , () => {
+  todos = JSON.parse(localStorage.getItem('todos')) || [];
   const form = document.querySelector("#new-task-form");
   const input = document.querySelector("#new-task-input");
   const list_el = document.querySelector("#tasks");
+  const nameInput = document.querySelector('#name');
 
+  const username = localStorage.getItem ('username') || '';
+
+  nameInput.value = username;
+
+  nameInput.addEventListener('change', (e) => {
+		localStorage.setItem('username', e.target.value);
+	});
 
   form.addEventListener('submit',(e) =>{
     e.preventDefault();
     
-    const task =input.value;
+    const task = input.value
+    localStorage.setItem('todos', JSON.stringify(todos));
     if (!task ){
       alert("Please fill out the  task");
       return;
@@ -49,23 +59,30 @@ window.addEventListener('load' , () => {
     list_el.appendChild(task_el);
 
     input.value = "";
+    
 
-    task_edit_el.addEventListener('click',() => {
-     if (task_edit_el.innerText.toLowerCase()==
+    task_edit_el.addEventListener('click', () => {
+     if (task_edit_el.innerText.toLowerCase() ==
      "edit") {
        task_input_el.removeAttribute("readonly");
        task_input_el.focus();
-       task_edit_el.innerText == "Save";
+       task_edit_el.innerText = "Save";
      } else {
        task_input_el.setAttribute("readonly", 
        "readonly");
-       task_edit_el.innerText = "Edit"
+       task_edit_el.innerText = "Edit";
      }
+
+     localStorage.setItem('todos', JSON.stringify(todos));
     });
 
-    task_delete_el.addEventListener('click', () => {
+    task_delete_el.addEventListener('click', (e) => {
       list_el.removeChild (task_el);
+  
+			localStorage.setItem('todos', JSON.stringify(todos));
+			 
     });
-  });
-});
 
+  });
+
+  });
